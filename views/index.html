@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    logged in
+    <form method="POST" action="/item">
+        <input type="text" name="item"/>
+        <button type="submit">Save</button>
+    </form>
+
+    <ul>
+        {{#items}}
+            <li>{{name}}</li>
+        {{/items}}
+    </ul>
+</body>
+</html>
