@@ -16,7 +16,7 @@
 <body class="listPage">
     <div class="creation">
         <h1>Todoogle</h1>
-        <form method="POST" action="/item">
+        <form class="creationForm" method="POST" action="/item">
             <input type="text" autofocus class="itemInput" name="item"/>
             <button type="submit">Save</button>
         </form>
@@ -26,6 +26,7 @@
         {{#items}}
         <div class="item">
             <span>{{name}}</span>
+            <form class="remove" action="/item/{{name}}/remove" method="post"><button>x</button></form>
         </div>
         {{/items}}
     </div>

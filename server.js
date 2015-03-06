@@ -99,6 +99,39 @@ app.get('/', function(req, res) {
     });
 });
 
+app.post('/item/:name/remove', function(req, res) {
+    var toBeRemoved = req.params.name;
+    var client = redis.createClient();
+
+    client.on('error', function(error) {
+        console.log(error);
+    });
+
+    client.on('connect', function() {
+        client.get(req.user, function(err, items) {
+            try {
+                items = JSON.parse(items) || [];
+            } catch(e) {
+                items = [];
+            }
+
+            var withoutRemovedItem = items.reduce(function(memo, item) {
+                if (item.name !== toBeRemoved) {
+                    memo.push(item);
+                }
+
+                return memo;
+            }, []);
+
+            client.set(req.user, JSON.stringify(withoutRemovedItem));
+
+            client.quit();
+
+            res.redirect('/');
+        });
+    });
+});
+
 app.post('/item', function(req, res) {
     var item = req.body.item;
     var client = redis.createClient();
