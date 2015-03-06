@@ -1,18 +1,33 @@
 <html>
 <head>
     <title>Home</title>
-</head>
-<body>
-    logged in
-    <form method="POST" action="/item">
-        <input type="text" name="item"/>
-        <button type="submit">Save</button>
-    </form>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    <ul>
+      ga('create', 'UA-60373233-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body class="listPage">
+    <div class="creation">
+        <h1>Todoogle</h1>
+        <form method="POST" action="/item">
+            <input type="text" autofocus class="itemInput" name="item"/>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <div class="list">
         {{#items}}
-            <li>{{name}}</li>
+        <div class="item">
+            <span>{{name}}</span>
+        </div>
         {{/items}}
-    </ul>
+    </div>
 </body>
 </html>

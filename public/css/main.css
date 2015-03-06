@@ -1,0 +1,98 @@
+
+body {
+    background-color: #222222;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+}
+
+button {
+    background-color: #BB7404;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font: inherit;
+    font-weight: 100;
+    color: #bbb;
+}
+
+h1 {
+    color: #bbb;
+    font-weight: 100;
+}
+.listPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.listPage form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.listPage form button{
+    height: 6%;
+    margin-left: 1%;
+    font-size: 1em;
+}
+
+.loginPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginPage form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    height: 10%;
+}
+
+button:active {
+    background-color: #BB7409;
+    border: 1px solid #bbb;
+}
+
+.creation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.list {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.item {
+    flex-grow: 0;
+    background-color: #424242;
+    margin: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    color: #bbb;
+    min-width: 10%;
+    min-height: 10%;
+    max-width: 50%;
+    max-height: 50%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.itemInput {
+    display: flex;
+    flex-basis: 40%;
+    height: 6%;
+    font-size: 1em;
+    border-radius: 3px;
+}
