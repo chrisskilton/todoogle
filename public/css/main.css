@@ -151,3 +151,11 @@ button:active {
     font-size: 1em;
     border-radius: 3px;
 }
+
+a.logout {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    color: #bbb;
+    text-decoration: none;
+}
