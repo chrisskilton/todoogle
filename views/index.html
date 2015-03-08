@@ -17,7 +17,7 @@
     <div class="creation">
         <h1>Todoogle</h1>
         <form class="creationForm" method="POST" action="/item">
-            <input type="text" autofocus required autocomplete="off" pattern="[a-zA-Z0-9_-]{1,140}" class="itemInput" name="item"/>
+            <input type="text" autofocus required autocomplete="off" class="itemInput" name="item"/>
             <button type="submit">Save</button>
         </form>
     </div>
@@ -26,7 +26,7 @@
         {{#items}}
         <div class="item">
             <span>{{name}}</span>
-            <form class="remove" action="/item/{{name}}/remove" method="post"><button>x</button></form>
+            <form class="remove" action="/item/{{id}}/remove" method="post"><button>x</button></form>
         </div>
         {{/items}}
     </div>

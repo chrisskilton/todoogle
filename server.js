@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var args = require('minimist')(process.argv.slice(2));
 var fs = require('fs');
 var config = fs.existsSync('./config.json') ? JSON.parse(fs.readFileSync('./config.json')) : {};
+var shortid = require('shortid');
 
 app.engine('html', consolidate.hogan);
 app.set('view engine', 'html');
@@ -99,8 +100,8 @@ app.get('/', function(req, res) {
     });
 });
 
-app.post('/item/:name/remove', function(req, res) {
-    var toBeRemoved = req.params.name;
+app.post('/item/:id/remove', function(req, res) {
+    var toBeRemoved = req.params.id;
     var client = redis.createClient();
 
     client.on('error', function(error) {
@@ -116,7 +117,7 @@ app.post('/item/:name/remove', function(req, res) {
             }
 
             var withoutRemovedItem = items.reduce(function(memo, item) {
-                if (item.name !== toBeRemoved) {
+                if (item.id !== toBeRemoved) {
                     memo.push(item);
                 }
 
@@ -149,6 +150,7 @@ app.post('/item', function(req, res) {
             }
 
             items.push({
+                id: shortid.generate(),
                 name: item
             });
 
@@ -159,6 +161,10 @@ app.post('/item', function(req, res) {
             res.redirect('/');
         });
     });
+});
+
+app.all('*', function(req, res) {
+    res.redirect('/');
 });
 
 server.listen(3000);
